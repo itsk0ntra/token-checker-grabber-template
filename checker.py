@@ -1,5 +1,4 @@
 import os
-import time
 from requests import get, post
 from random import randint
 from discord_webhook import DiscordWebhook
