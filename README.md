@@ -15,4 +15,4 @@ send it to people who wanna mass check tokens
 enjoy
 
 # information
-their ip will get used (and probably get flagged after some time), so don't worry :]
+their ip will be used to check the tokens (and probably get flagged after some time), so don't worry :]
