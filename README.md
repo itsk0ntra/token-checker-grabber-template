@@ -16,3 +16,5 @@ enjoy
 
 # information
 their ip will be used to check the tokens (and probably get flagged after some time), so don't worry :]
+
+**I won't update this project.**
